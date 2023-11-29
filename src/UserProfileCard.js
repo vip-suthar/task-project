@@ -3,55 +3,16 @@ import {
   Button,
   Card,
   Flex,
-  Image,
   Modal,
   Skeleton,
   Space,
-  Table,
   Tooltip,
   Typography,
 } from "antd";
 import { ExportOutlined } from "@ant-design/icons";
 import { useEffect, useState } from "react";
 
-const { Link, Text, Title } = Typography;
-
-const data = {
-  login: "vip-suthar",
-  id: 78523125,
-  node_id: "MDQ6VXNlcjc4NTIzMTI1",
-  avatar_url: "https://avatars.githubusercontent.com/u/78523125?v=4",
-  gravatar_id: "",
-  url: "https://api.github.com/users/vip-suthar",
-  html_url: "https://github.com/vip-suthar",
-  followers_url: "https://api.github.com/users/vip-suthar/followers",
-  following_url:
-    "https://api.github.com/users/vip-suthar/following{/other_user}",
-  gists_url: "https://api.github.com/users/vip-suthar/gists{/gist_id}",
-  starred_url: "https://api.github.com/users/vip-suthar/starred{/owner}{/repo}",
-  subscriptions_url: "https://api.github.com/users/vip-suthar/subscriptions",
-  organizations_url: "https://api.github.com/users/vip-suthar/orgs",
-  repos_url: "https://api.github.com/users/vip-suthar/repos",
-  events_url: "https://api.github.com/users/vip-suthar/events{/privacy}",
-  received_events_url:
-    "https://api.github.com/users/vip-suthar/received_events",
-  type: "User",
-  site_admin: false,
-  name: "Vipin Suthar",
-  company: null,
-  blog: "",
-  location: null,
-  email: null,
-  hireable: null,
-  bio: null,
-  twitter_username: null,
-  public_repos: 10,
-  public_gists: 0,
-  followers: 0,
-  following: 0,
-  created_at: "2021-02-04T04:37:55Z",
-  updated_at: "2023-09-11T16:56:01Z",
-};
+const { Text, Title } = Typography;
 
 export default function UserProfileCard({ url, unsetUrl }) {
   const [open, setOpen] = useState(!!url);

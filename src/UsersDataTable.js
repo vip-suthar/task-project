@@ -1,5 +1,5 @@
 import { Button, Image, Table, Typography } from "antd";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import UserProfileCard from "./UserProfileCard";
 
 const { Link } = Typography;

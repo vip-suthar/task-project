@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Button, Input, Layout, Space, Typography } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import { Content, Header } from "antd/es/layout/layout";
@@ -33,13 +33,13 @@ function App() {
       setDebouncedInputValue(inputValue);
     }, 500);
     return () => clearTimeout(timeoutId);
-  }, [inputValue, 500]);
+  }, [inputValue]);
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
 
-  const handleUsersDataSearch = () => {
+  const handleUsersDataSearch = useCallback(() => {
     if (!(debouncedInputValue && debouncedInputValue.trim() !== "")) return;
     setLoading(true);
     setMessage(`Searching results for "${debouncedInputValue}" ...`);
@@ -69,7 +69,7 @@ function App() {
         setLoading(false);
         console.error(err);
       });
-  };
+  }, [debouncedInputValue]);
 
   const [usersData, setUsersData] = useState(null);
   useEffect(() => {
@@ -80,7 +80,7 @@ function App() {
       setLoading(true);
       setMessage("Type something to search...");
     }
-  }, [debouncedInputValue]);
+  }, [debouncedInputValue, handleUsersDataSearch]);
 
   return (
     <Layout
